@@ -1,10 +1,8 @@
-require 'formula'
-
 class Geoserver < Formula
   desc "Java server to share and edit geospatial data"
-  homepage 'http://geoserver.org/'
-  url 'https://downloads.sourceforge.net/project/geoserver/GeoServer/2.7.2/geoserver-2.7.2-bin.zip'
-  sha256 '2fffa49bc46743673e4fd678873ff2891e1a31471a10758aa0603c30fea2b1eb'
+  homepage "http://geoserver.org/"
+  url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.8.0/geoserver-2.8.0-bin.zip"
+  sha256 "182957ae500dfc41775ca0448feb53da488c3aa90ddbc3e9f9ba4568fad6779e"
 
   def install
     libexec.install Dir['*']
@@ -21,12 +19,13 @@ class Geoserver < Formula
   def caveats; <<-EOS.undent
     To start geoserver:
       geoserver path/to/data/dir
+
     See the Geoserver homepage for more setup information:
       brew home geoserver
     EOS
   end
 
   test do
-    assert_match /geoserver path/, shell_outout("#{bin}/geoserver")
+    assert_match /geoserver path/, shell_output("#{bin}/geoserver")
   end
 end
